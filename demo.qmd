@@ -1,0 +1,236 @@
+# Examples
+
+```{ojs}
+//| echo: false
+// Master helper function for the interactive unit circle widget
+function drawUnitCircle(angle_deg) {
+  const rad = angle_deg * Math.PI / 180;
+  const cos_v = Math.cos(rad).toFixed(2);
+  const sin_v = Math.sin(rad).toFixed(2);
+  const tan_v = Math.abs(Math.cos(rad)) < 0.001 ? "Undef" : Math.tan(rad).toFixed(2);
+  
+  return html`
+    <div style="text-align: center; margin-top: 10px;">
+      <svg width="240" height="240" viewBox="-1.5 -1.5 3 3" style="background:#fdfdfc; border:1px solid #ccc; border-radius:8px;">
+        <!-- Axes -->
+        <line x1="-1.4" y1="0" x2="1.4" y2="0" stroke="#ccc" stroke-width="0.02" />
+        <line x1="0" y1="-1.4" x2="0" y2="1.4" stroke="#ccc" stroke-width="0.02" />
+        <!-- Unit Circle -->
+        <circle cx="0" cy="0" r="1" stroke="#005eb8" stroke-width="0.03" fill="none" />
+        <!-- Angle Ray -->
+        <line x1="0" y1="0" x2="${Math.cos(rad)}" y2="${-Math.sin(rad)}" stroke="#d55e00" stroke-width="0.05" />
+        <circle cx="${Math.cos(rad)}" cy="${-Math.sin(rad)}" r="0.08" fill="#d55e00" />
+      </svg>
+      <div style="font-size:1rem; margin-top:10px; color: #2b2b2b;">
+        <b>sin:</b> ${sin_v} &nbsp;|&nbsp; <b>cos:</b> ${cos_v} &nbsp;|&nbsp; <b>tan:</b> ${tan_v}
+      </div>
+    </div>
+  `;
+}
+```
+
+## Example 1
+Solve $\sin(2x) = \sin(x)$ for $0 \le x \le 2\pi$. *(Double the angle, same value)*
+
+:::: {.columns style="display: flex; gap: 4%;"}
+::: {.column width="28%"}
+### Left
+<details open>
+<summary>Step 1: Expand</summary>
+$2\sin(x)\cos(x) = \sin(x)$
+</details>
+<details open>
+<summary>Step 2: Divide (Incorrect)</summary>
+Divide both sides by $\sin(x)$:
+<br>$2\cos(x) = 1$
+</details>
+<details open>
+<summary>Step 3: Solve</summary>
+$\cos(x) = \frac{1}{2}$
+<br>$\implies x = \frac{\pi}{3}, \frac{5\pi}{3}$
+<br><br>*(We lost the solutions where $\sin(x) = 0$!)*
+</details>
+:::
+
+::: {.column width="28%"}
+### Right
+<details open>
+<summary>Step 1: Expand</summary>
+$2\sin(x)\cos(x) = \sin(x)$
+</details>
+<details open>
+<summary>Step 2: Rearrange & Factorise</summary>
+$2\sin(x)\cos(x) - \sin(x) = 0$
+<br>$\sin(x)(2\cos(x) - 1) = 0$
+</details>
+<details open>
+<summary>Step 3: Solve</summary>
+$\sin(x) = 0 \implies x = 0, \pi, 2\pi$
+<br>$\cos(x) = \frac{1}{2} \implies x = \frac{\pi}{3}, \frac{5\pi}{3}$
+</details>
+:::
+
+::: {.column width="36%"}
+```{ojs}
+//| echo: false
+viewof a1 = Inputs.range([-360, 360], {value: 60, step: 1, label: "Angle x (°)"})
+drawUnitCircle(a1)
+```
+:::
+::::
+
+---
+
+## Example 2
+Solve $\sin(2x) = 2\sin(x)$ for $0 \le x \le 2\pi$. *(Double the angle, double the value)*
+
+:::: {.columns style="display: flex; gap: 4%;"}
+::: {.column width="28%"}
+### Left
+<details open>
+<summary>Step 1: Expand</summary>
+$2\sin(x)\cos(x) = 2\sin(x)$
+</details>
+<details open>
+<summary>Step 2: Divide (Incorrect)</summary>
+Divide both sides by $2\sin(x)$:
+<br>$\cos(x) = 1$
+</details>
+<details open>
+<summary>Step 3: Solve</summary>
+$x = 0, 2\pi$
+<br><br>*(Missed a valid intersection!)*
+</details>
+:::
+
+::: {.column width="28%"}
+### Right
+<details open>
+<summary>Step 1: Expand</summary>
+$2\sin(x)\cos(x) = 2\sin(x)$
+</details>
+<details open>
+<summary>Step 2: Rearrange & Factorise</summary>
+$2\sin(x)\cos(x) - 2\sin(x) = 0$
+<br>$2\sin(x)(\cos(x) - 1) = 0$
+</details>
+<details open>
+<summary>Step 3: Solve</summary>
+$\sin(x) = 0 \implies x = 0, \pi, 2\pi$
+<br>$\cos(x) = 1 \implies x = 0, 2\pi$
+</details>
+:::
+
+::: {.column width="36%"}
+```{ojs}
+//| echo: false
+viewof a2 = Inputs.range([-360, 360], {value: 180, step: 1, label: "Angle x (°)"})
+drawUnitCircle(a2)
+```
+:::
+::::
+
+---
+
+## Example 3
+Solve $\sin(2x) = \sin^2(x)$ for $0 \le x \le 2\pi$. *(Double the angle, square the value)*
+
+:::: {.columns style="display: flex; gap: 4%;"}
+::: {.column width="28%"}
+### Left
+<details open>
+<summary>Step 1: Expand</summary>
+$2\sin(x)\cos(x) = \sin^2(x)$
+</details>
+<details open>
+<summary>Step 2: Divide (Incorrect)</summary>
+Divide both sides by $\sin(x)$:
+<br>$2\cos(x) = \sin(x)$
+</details>
+<details open>
+<summary>Step 3: Solve</summary>
+$\frac{\sin(x)}{\cos(x)} = 2 \implies \tan(x) = 2$
+<br>$x \approx 1.107, 4.249$
+<br><br>*(Lost solutions again!)*
+</details>
+:::
+
+::: {.column width="28%"}
+### Right
+<details open>
+<summary>Step 1: Expand</summary>
+$2\sin(x)\cos(x) = \sin^2(x)$
+</details>
+<details open>
+<summary>Step 2: Rearrange & Factorise</summary>
+$2\sin(x)\cos(x) - \sin^2(x) = 0$
+<br>$\sin(x)(2\cos(x) - \sin(x)) = 0$
+</details>
+<details open>
+<summary>Step 3: Solve</summary>
+$\sin(x) = 0 \implies x = 0, \pi, 2\pi$
+<br>$\tan(x) = 2 \implies x \approx 1.107, 4.249$
+</details>
+:::
+
+::: {.column width="36%"}
+```{ojs}
+//| echo: false
+viewof a3 = Inputs.range([-360, 360], {value: 63, step: 1, label: "Angle x (°)"})
+drawUnitCircle(a3)
+```
+:::
+::::
+
+---
+
+## Example 4
+Solve $\sin(3x) = 3\sin(x)$ for $0 \le x \le 2\pi$. *(Triple the angle, triple the value)*
+
+:::: {.columns style="display: flex; gap: 4%;"}
+::: {.column width="28%"}
+### Left
+<details open>
+<summary>Step 1: Divide (Incorrect)</summary>
+Divide both sides by $\sin(x)$:
+<br>$\frac{\sin(3x)}{\sin(x)} = 3$
+</details>
+<details open>
+<summary>Step 2: Bad Cancellation</summary>
+Cancel the 'sin' terms:
+<br>$\frac{3x}{x} = 3 \implies 3 = 3$
+</details>
+<details open>
+<summary>Step 3: Conclusion</summary>
+"This is always true!"
+<br><br>*(Catastrophic failure of mathematical logic!)*
+</details>
+:::
+
+::: {.column width="28%"}
+### Right
+<details open>
+<summary>Step 1: Apply Identity</summary>
+$3\sin(x) - 4\sin^3(x) = 3\sin(x)$
+</details>
+<details open>
+<summary>Step 2: Rearrange</summary>
+Subtract $3\sin(x)$ from both sides:
+<br>$-4\sin^3(x) = 0$
+<br>$\sin^3(x) = 0$
+</details>
+<details open>
+<summary>Step 3: Solve</summary>
+$\sin(x) = 0$
+<br>$\implies x = 0, \pi, 2\pi$
+</details>
+:::
+
+::: {.column width="36%"}
+```{ojs}
+//| echo: false
+viewof a4 = Inputs.range([-360, 360], {value: 0, step: 1, label: "Angle x (°)"})
+drawUnitCircle(a4)
+```
+:::
+::::

@@ -1,0 +1,31 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "NSW Maths Ext 1: Trigonometry"
+  sidebar:
+    style: "docked"
+    search: false
+    contents:
+      - text: "Home"
+        file: index.qmd
+      - text: "1. Concept Map"
+        file: intro.qmd
+      - text: "2. HSC Assessment"
+        file: exam.qmd
+      - text: "3. Examples"
+        file: demo.qmd
+      - text: "4. Pedagogical Justification"
+        file: justify.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: false
+    echo: false
+    code-tools: false
+    code-fold: false
+    grid:
+      body-width: 1200px

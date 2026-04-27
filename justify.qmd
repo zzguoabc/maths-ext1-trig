@@ -1,0 +1,6 @@
+# Pedagogical Rationale
+
+## Why this approach?
+* **Dual Coding**: Coupling abstract algebraic factorisation with visual geometry (unit circle) reduces cognitive load.
+* **Productive Failure**: The opening provocation induces a common error (dividing to lose a solution), priming students to accept the correct factorisation method.
+* **Targeted Intervention**: Directly mitigates the highest feedback-risk identified by HSC markers—domain errors and lost solutions.

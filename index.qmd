@@ -1,0 +1,16 @@
+# Welcome
+
+* **Data-driven strategy**: Targeting high-yield NSW Syllabus trigonometric concepts.
+* **Focus on process over rote memory**: Emphasising conceptual linkage to reduce cognitive load.
+* **Ready-to-teach**: Designed for direct classroom application and interactive learning.
+
+---
+
+**The "Where" of Mathematics**
+*The Victorian Government states: "A domain name is a unique name that identifies your website's location on the internet."*
+
+**Fill in the blanks by choosing the correct mathematical terms:**
+
+1. A domain is the set of **[input / output]** values that identifies where a function is defined. 
+2. The domain of a trigonometric function is the set of **[angle / ratio]** values for which the function is defined.
+3. When solving trigonometric equations, the domain is the specific interval over which we identify our **[solutions / amplitudes]**.

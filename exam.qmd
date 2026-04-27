@@ -1,0 +1,9 @@
+# HSC Assessment Profile
+
+## Typical Question Format
+* **Direct Assessment**: Standalone equations (e.g., $2 \cos^2 x + \sin x - 1 = 0$ for $0 \le x \le 2\pi$), typically worth 2–3 marks.
+* **Embedded Assessment**: Crucial final step in complex calculus problems (finding stationary points).
+
+## Marker Feedback & Pitfalls
+* **Lost Solutions**: Students algebraically divide by trig terms (e.g., $\cos x$), unwittingly discarding valid intersection points.
+* **Quadrant Slips**: Correct reference angle, but failure to apply ASTC rules across the restricted domain.

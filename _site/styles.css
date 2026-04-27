@@ -1,0 +1,98 @@
+/* UDL & Accessible Colour Scheme */
+body {
+  background-color: #fdfdfc;
+  color: #2b2b2b;
+  line-height: 1.6;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.1rem;
+}
+
+h1, h2, h3 {
+  color: #005eb8;
+  font-weight: 600;
+  margin-top: 2rem;
+}
+
+/* Links */
+a, strong {
+  color: #d55e00; 
+}
+a {
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+a:hover, a:focus {
+  color: #a34700;
+  outline: 2px dashed #005eb8;
+}
+
+/* Collapsible Steps */
+details {
+  background-color: #f7f9fa;
+  border: 1px solid #d8dde6;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+summary {
+  font-weight: 600;
+  color: #005eb8;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Mindmap Container & Sidebox */
+.mindmap-container {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+}
+
+.mindmap-canvas {
+  flex: 1; 
+  min-width: 0; 
+  border: 1px solid #d8dde6;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.mindmap-sidebox {
+  width: 300px;
+  flex-shrink: 0;
+  background-color: #f7f9fa;
+  border: 2px solid #005eb8;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.mindmap-sidebox h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #d55e00;
+}
+
+.mindmap-sidebox p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 800px) {
+  .mindmap-container {
+    flex-direction: column;
+  }
+  .mindmap-sidebox {
+    width: auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media print {
+  body { background-color: #ffffff !important; color: #000000 !important; }
+  #quarto-sidebar, .navbar { display: none !important; }
+}

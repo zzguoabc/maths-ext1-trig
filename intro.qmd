@@ -1,0 +1,66 @@
+# Concept Map: Trigonometry
+
+* **Interconnected Toolkit:** Trigonometric concepts build upon each other.
+* **Data-Informed Priority:** The map below highlights ten core concepts.
+
+::: {.mindmap-container}
+
+::: {.mindmap-canvas}
+```{r}
+#| label: concept-mindmap
+#| echo: false
+#| message: false
+#| warning: false
+
+library(visNetwork)
+
+nodes <- data.frame(
+  id = 1:10,
+  label = c("1. Restricted-Domain Equations", "2. Compound Angles", "3. Double Angles", 
+            "4. Auxiliary Angle", "5. t-formula", "6. Inverse Trig Definitions", 
+            "7. Inverse Trig Graphs", "8. Trig Calculus", "9. Trig Modelling", "10. Exact-Value Fluency"),
+  value = c(94, 7, 18, 30, 9, 78, 26, 55, 84, 34),
+  group = c("Year 11", "Year 11", "Year 11", "Year 11", "Year 11", 
+            "Year 12", "Year 12", "Year 12", "Cross-topic", "Foundational"),
+  stats = c(
+    "<b>Score:</b> 94%<br><b>Risk:</b> High (1.00)",
+    "<b>Score:</b> 7%<br><b>Risk:</b> Low (0.00)",
+    "<b>Score:</b> 18%<br><b>Risk:</b> Med (0.44)",
+    "<b>Score:</b> 30%<br><b>Risk:</b> Low (0.29)",
+    "<b>Score:</b> 9%<br><b>Risk:</b> Low (0.00)",
+    "<b>Score:</b> 78%<br><b>Risk:</b> Low (0.29)",
+    "<b>Score:</b> 26%<br><b>Risk:</b> Med (0.44)",
+    "<b>Score:</b> 55%<br><b>Risk:</b> Med (0.51)",
+    "<b>Score:</b> 84%<br><b>Risk:</b> Low (0.20)",
+    "<b>Score:</b> 34%<br><b>Risk:</b> Low (0.09)"
+  )
+)
+
+edges <- data.frame(
+  from = c(10, 10, 1, 2, 2, 3, 4, 6, 6, 7, 8),
+  to   = c(1, 6, 2, 3, 4, 8, 9, 7, 8, 8, 9)
+)
+
+visNetwork(nodes, edges, width = "100%", height = "550px") %>%
+  visNodes(font = list(size = 18, face = "Segoe UI")) %>%
+  visOptions(highlightNearest = TRUE, nodesIdSelection = FALSE) %>%
+  visPhysics(solver = "forceAtlas2Based") %>%
+  visEvents(click = "function(properties) {
+    var callout = document.getElementById('concept-callout');
+    if (properties.nodes.length == 1) {
+      var nodeId = properties.nodes[0];
+      var node = this.body.data.nodes.get(nodeId);
+      callout.innerHTML = '<h3>' + node.label + '</h3><p>' + node.stats + '</p>';
+    } else {
+      callout.innerHTML = '<h3>Concept Details</h3><p>Click a node in the mindmap to view its HSC ranking statistics.</p>';
+    }
+  }")
+```
+:::
+
+::: {#concept-callout .mindmap-sidebox}
+### Concept Details
+Click a node in the mindmap to view its HSC ranking statistics.
+:::
+
+:::
