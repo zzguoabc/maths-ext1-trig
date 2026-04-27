@@ -1,0 +1,122 @@
+[
+  {
+    "objectID": "exam.html",
+    "href": "exam.html",
+    "title": "HSC Assessment Profile",
+    "section": "",
+    "text": "Direct Assessment: Standalone equations (e.g., \\(2 \\cos^2 x + \\sin x - 1 = 0\\) for \\(0 \\le x \\le 2\\pi\\)), typically worth 2–3 marks.\nEmbedded Assessment: Crucial final step in complex calculus problems (finding stationary points).\n\n\n\n\n\nLost Solutions: Students algebraically divide by trig terms (e.g., \\(\\cos x\\)), unwittingly discarding valid intersection points.\nQuadrant Slips: Correct reference angle, but failure to apply ASTC rules across the restricted domain.",
+    "crumbs": [
+      "2. HSC Assessment"
+    ]
+  },
+  {
+    "objectID": "exam.html#typical-question-format",
+    "href": "exam.html#typical-question-format",
+    "title": "HSC Assessment Profile",
+    "section": "",
+    "text": "Direct Assessment: Standalone equations (e.g., \\(2 \\cos^2 x + \\sin x - 1 = 0\\) for \\(0 \\le x \\le 2\\pi\\)), typically worth 2–3 marks.\nEmbedded Assessment: Crucial final step in complex calculus problems (finding stationary points).",
+    "crumbs": [
+      "2. HSC Assessment"
+    ]
+  },
+  {
+    "objectID": "exam.html#marker-feedback-pitfalls",
+    "href": "exam.html#marker-feedback-pitfalls",
+    "title": "HSC Assessment Profile",
+    "section": "",
+    "text": "Lost Solutions: Students algebraically divide by trig terms (e.g., \\(\\cos x\\)), unwittingly discarding valid intersection points.\nQuadrant Slips: Correct reference angle, but failure to apply ASTC rules across the restricted domain.",
+    "crumbs": [
+      "2. HSC Assessment"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "Welcome\n\nData-driven strategy: Targeting high-yield NSW Syllabus trigonometric concepts.\nFocus on process over rote memory: Emphasising conceptual linkage to reduce cognitive load.\nReady-to-teach: Designed for direct classroom application and interactive learning.\n\n\nThe “Where” of Mathematics The Victorian Government states: “A domain name is a unique name that identifies your website’s location on the internet.”\nFill in the blanks by choosing the correct mathematical terms:\n\nA domain is the set of [input / output] values that identifies where a function is defined.\nThe domain of a trigonometric function is the set of [angle / ratio] values for which the function is defined.\nWhen solving trigonometric equations, the domain is the specific interval over which we identify our [solutions / amplitudes].",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "demo.html",
+    "href": "demo.html",
+    "title": "Examples",
+    "section": "",
+    "text": "// Master helper function for the interactive unit circle widget\nfunction drawUnitCircle(angle_deg) {\n  const rad = angle_deg * Math.PI / 180;\n  const cos_v = Math.cos(rad).toFixed(2);\n  const sin_v = Math.sin(rad).toFixed(2);\n  const tan_v = Math.abs(Math.cos(rad)) &lt; 0.001 ? \"Undef\" : Math.tan(rad).toFixed(2);\n  \n  return html`\n    &lt;div style=\"text-align: center; margin-top: 10px;\"&gt;\n      &lt;svg width=\"240\" height=\"240\" viewBox=\"-1.5 -1.5 3 3\" style=\"background:#fdfdfc; border:1px solid #ccc; border-radius:8px;\"&gt;\n        &lt;!-- Axes --&gt;\n        &lt;line x1=\"-1.4\" y1=\"0\" x2=\"1.4\" y2=\"0\" stroke=\"#ccc\" stroke-width=\"0.02\" /&gt;\n        &lt;line x1=\"0\" y1=\"-1.4\" x2=\"0\" y2=\"1.4\" stroke=\"#ccc\" stroke-width=\"0.02\" /&gt;\n        &lt;!-- Unit Circle --&gt;\n        &lt;circle cx=\"0\" cy=\"0\" r=\"1\" stroke=\"#005eb8\" stroke-width=\"0.03\" fill=\"none\" /&gt;\n        &lt;!-- Angle Ray --&gt;\n        &lt;line x1=\"0\" y1=\"0\" x2=\"${Math.cos(rad)}\" y2=\"${-Math.sin(rad)}\" stroke=\"#d55e00\" stroke-width=\"0.05\" /&gt;\n        &lt;circle cx=\"${Math.cos(rad)}\" cy=\"${-Math.sin(rad)}\" r=\"0.08\" fill=\"#d55e00\" /&gt;\n      &lt;/svg&gt;\n      &lt;div style=\"font-size:1rem; margin-top:10px; color: #2b2b2b;\"&gt;\n        &lt;b&gt;sin:&lt;/b&gt; ${sin_v} &nbsp;|&nbsp; &lt;b&gt;cos:&lt;/b&gt; ${cos_v} &nbsp;|&nbsp; &lt;b&gt;tan:&lt;/b&gt; ${tan_v}\n      &lt;/div&gt;\n    &lt;/div&gt;\n  `;\n}\n\n\n\n\n\n\n\n\nSolve \\(\\sin(2x) = \\sin(x)\\) for \\(0 \\le x \\le 2\\pi\\). (Double the angle, same value)\n\n\n\n\n\n\nStep 1: Expand\n\n\\(2\\sin(x)\\cos(x) = \\sin(x)\\)\n\n\n\nStep 2: Divide (Incorrect)\n\nDivide both sides by \\(\\sin(x)\\): \\(2\\cos(x) = 1\\)\n\n\n\nStep 3: Solve\n\n\\(\\cos(x) = \\frac{1}{2}\\) \\(\\implies x = \\frac{\\pi}{3}, \\frac{5\\pi}{3}\\) (We lost the solutions where \\(\\sin(x) = 0\\)!)\n\n\n\n\n\n\n\nStep 1: Expand\n\n\\(2\\sin(x)\\cos(x) = \\sin(x)\\)\n\n\n\nStep 2: Rearrange & Factorise\n\n\\(2\\sin(x)\\cos(x) - \\sin(x) = 0\\) \\(\\sin(x)(2\\cos(x) - 1) = 0\\)\n\n\n\nStep 3: Solve\n\n\\(\\sin(x) = 0 \\implies x = 0, \\pi, 2\\pi\\) \\(\\cos(x) = \\frac{1}{2} \\implies x = \\frac{\\pi}{3}, \\frac{5\\pi}{3}\\)\n\n\n\n\nviewof a1 = Inputs.range([-360, 360], {value: 60, step: 1, label: \"Angle x (°)\"})\ndrawUnitCircle(a1)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSolve \\(\\sin(2x) = 2\\sin(x)\\) for \\(0 \\le x \\le 2\\pi\\). (Double the angle, double the value)\n\n\n\n\n\n\nStep 1: Expand\n\n\\(2\\sin(x)\\cos(x) = 2\\sin(x)\\)\n\n\n\nStep 2: Divide (Incorrect)\n\nDivide both sides by \\(2\\sin(x)\\): \\(\\cos(x) = 1\\)\n\n\n\nStep 3: Solve\n\n\\(x = 0, 2\\pi\\) (Missed a valid intersection!)\n\n\n\n\n\n\n\nStep 1: Expand\n\n\\(2\\sin(x)\\cos(x) = 2\\sin(x)\\)\n\n\n\nStep 2: Rearrange & Factorise\n\n\\(2\\sin(x)\\cos(x) - 2\\sin(x) = 0\\) \\(2\\sin(x)(\\cos(x) - 1) = 0\\)\n\n\n\nStep 3: Solve\n\n\\(\\sin(x) = 0 \\implies x = 0, \\pi, 2\\pi\\) \\(\\cos(x) = 1 \\implies x = 0, 2\\pi\\)\n\n\n\n\nviewof a2 = Inputs.range([-360, 360], {value: 180, step: 1, label: \"Angle x (°)\"})\ndrawUnitCircle(a2)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSolve \\(\\sin(2x) = \\sin^2(x)\\) for \\(0 \\le x \\le 2\\pi\\). (Double the angle, square the value)\n\n\n\n\n\n\nStep 1: Expand\n\n\\(2\\sin(x)\\cos(x) = \\sin^2(x)\\)\n\n\n\nStep 2: Divide (Incorrect)\n\nDivide both sides by \\(\\sin(x)\\): \\(2\\cos(x) = \\sin(x)\\)\n\n\n\nStep 3: Solve\n\n\\(\\frac{\\sin(x)}{\\cos(x)} = 2 \\implies \\tan(x) = 2\\) \\(x \\approx 1.107, 4.249\\) (Lost solutions again!)\n\n\n\n\n\n\n\nStep 1: Expand\n\n\\(2\\sin(x)\\cos(x) = \\sin^2(x)\\)\n\n\n\nStep 2: Rearrange & Factorise\n\n\\(2\\sin(x)\\cos(x) - \\sin^2(x) = 0\\) \\(\\sin(x)(2\\cos(x) - \\sin(x)) = 0\\)\n\n\n\nStep 3: Solve\n\n\\(\\sin(x) = 0 \\implies x = 0, \\pi, 2\\pi\\) \\(\\tan(x) = 2 \\implies x \\approx 1.107, 4.249\\)\n\n\n\n\nviewof a3 = Inputs.range([-360, 360], {value: 63, step: 1, label: \"Angle x (°)\"})\ndrawUnitCircle(a3)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSolve \\(\\sin(3x) = 3\\sin(x)\\) for \\(0 \\le x \\le 2\\pi\\). (Triple the angle, triple the value)\n\n\n\n\n\n\nStep 1: Divide (Incorrect)\n\nDivide both sides by \\(\\sin(x)\\): \\(\\frac{\\sin(3x)}{\\sin(x)} = 3\\)\n\n\n\nStep 2: Bad Cancellation\n\nCancel the ‘sin’ terms: \\(\\frac{3x}{x} = 3 \\implies 3 = 3\\)\n\n\n\nStep 3: Conclusion\n\n“This is always true!” (Catastrophic failure of mathematical logic!)\n\n\n\n\n\n\n\nStep 1: Apply Identity\n\n\\(3\\sin(x) - 4\\sin^3(x) = 3\\sin(x)\\)\n\n\n\nStep 2: Rearrange\n\nSubtract \\(3\\sin(x)\\) from both sides: \\(-4\\sin^3(x) = 0\\) \\(\\sin^3(x) = 0\\)\n\n\n\nStep 3: Solve\n\n\\(\\sin(x) = 0\\) \\(\\implies x = 0, \\pi, 2\\pi\\)\n\n\n\n\nviewof a4 = Inputs.range([-360, 360], {value: 0, step: 1, label: \"Angle x (°)\"})\ndrawUnitCircle(a4)",
+    "crumbs": [
+      "3. Examples"
+    ]
+  },
+  {
+    "objectID": "demo.html#example-1",
+    "href": "demo.html#example-1",
+    "title": "Examples",
+    "section": "",
+    "text": "Solve \\(\\sin(2x) = \\sin(x)\\) for \\(0 \\le x \\le 2\\pi\\). (Double the angle, same value)\n\n\n\n\n\n\nStep 1: Expand\n\n\\(2\\sin(x)\\cos(x) = \\sin(x)\\)\n\n\n\nStep 2: Divide (Incorrect)\n\nDivide both sides by \\(\\sin(x)\\): \\(2\\cos(x) = 1\\)\n\n\n\nStep 3: Solve\n\n\\(\\cos(x) = \\frac{1}{2}\\) \\(\\implies x = \\frac{\\pi}{3}, \\frac{5\\pi}{3}\\) (We lost the solutions where \\(\\sin(x) = 0\\)!)\n\n\n\n\n\n\n\nStep 1: Expand\n\n\\(2\\sin(x)\\cos(x) = \\sin(x)\\)\n\n\n\nStep 2: Rearrange & Factorise\n\n\\(2\\sin(x)\\cos(x) - \\sin(x) = 0\\) \\(\\sin(x)(2\\cos(x) - 1) = 0\\)\n\n\n\nStep 3: Solve\n\n\\(\\sin(x) = 0 \\implies x = 0, \\pi, 2\\pi\\) \\(\\cos(x) = \\frac{1}{2} \\implies x = \\frac{\\pi}{3}, \\frac{5\\pi}{3}\\)\n\n\n\n\nviewof a1 = Inputs.range([-360, 360], {value: 60, step: 1, label: \"Angle x (°)\"})\ndrawUnitCircle(a1)",
+    "crumbs": [
+      "3. Examples"
+    ]
+  },
+  {
+    "objectID": "demo.html#example-2",
+    "href": "demo.html#example-2",
+    "title": "Examples",
+    "section": "",
+    "text": "Solve \\(\\sin(2x) = 2\\sin(x)\\) for \\(0 \\le x \\le 2\\pi\\). (Double the angle, double the value)\n\n\n\n\n\n\nStep 1: Expand\n\n\\(2\\sin(x)\\cos(x) = 2\\sin(x)\\)\n\n\n\nStep 2: Divide (Incorrect)\n\nDivide both sides by \\(2\\sin(x)\\): \\(\\cos(x) = 1\\)\n\n\n\nStep 3: Solve\n\n\\(x = 0, 2\\pi\\) (Missed a valid intersection!)\n\n\n\n\n\n\n\nStep 1: Expand\n\n\\(2\\sin(x)\\cos(x) = 2\\sin(x)\\)\n\n\n\nStep 2: Rearrange & Factorise\n\n\\(2\\sin(x)\\cos(x) - 2\\sin(x) = 0\\) \\(2\\sin(x)(\\cos(x) - 1) = 0\\)\n\n\n\nStep 3: Solve\n\n\\(\\sin(x) = 0 \\implies x = 0, \\pi, 2\\pi\\) \\(\\cos(x) = 1 \\implies x = 0, 2\\pi\\)\n\n\n\n\nviewof a2 = Inputs.range([-360, 360], {value: 180, step: 1, label: \"Angle x (°)\"})\ndrawUnitCircle(a2)",
+    "crumbs": [
+      "3. Examples"
+    ]
+  },
+  {
+    "objectID": "demo.html#example-3",
+    "href": "demo.html#example-3",
+    "title": "Examples",
+    "section": "",
+    "text": "Solve \\(\\sin(2x) = \\sin^2(x)\\) for \\(0 \\le x \\le 2\\pi\\). (Double the angle, square the value)\n\n\n\n\n\n\nStep 1: Expand\n\n\\(2\\sin(x)\\cos(x) = \\sin^2(x)\\)\n\n\n\nStep 2: Divide (Incorrect)\n\nDivide both sides by \\(\\sin(x)\\): \\(2\\cos(x) = \\sin(x)\\)\n\n\n\nStep 3: Solve\n\n\\(\\frac{\\sin(x)}{\\cos(x)} = 2 \\implies \\tan(x) = 2\\) \\(x \\approx 1.107, 4.249\\) (Lost solutions again!)\n\n\n\n\n\n\n\nStep 1: Expand\n\n\\(2\\sin(x)\\cos(x) = \\sin^2(x)\\)\n\n\n\nStep 2: Rearrange & Factorise\n\n\\(2\\sin(x)\\cos(x) - \\sin^2(x) = 0\\) \\(\\sin(x)(2\\cos(x) - \\sin(x)) = 0\\)\n\n\n\nStep 3: Solve\n\n\\(\\sin(x) = 0 \\implies x = 0, \\pi, 2\\pi\\) \\(\\tan(x) = 2 \\implies x \\approx 1.107, 4.249\\)\n\n\n\n\nviewof a3 = Inputs.range([-360, 360], {value: 63, step: 1, label: \"Angle x (°)\"})\ndrawUnitCircle(a3)",
+    "crumbs": [
+      "3. Examples"
+    ]
+  },
+  {
+    "objectID": "demo.html#example-4",
+    "href": "demo.html#example-4",
+    "title": "Examples",
+    "section": "",
+    "text": "Solve \\(\\sin(3x) = 3\\sin(x)\\) for \\(0 \\le x \\le 2\\pi\\). (Triple the angle, triple the value)\n\n\n\n\n\n\nStep 1: Divide (Incorrect)\n\nDivide both sides by \\(\\sin(x)\\): \\(\\frac{\\sin(3x)}{\\sin(x)} = 3\\)\n\n\n\nStep 2: Bad Cancellation\n\nCancel the ‘sin’ terms: \\(\\frac{3x}{x} = 3 \\implies 3 = 3\\)\n\n\n\nStep 3: Conclusion\n\n“This is always true!” (Catastrophic failure of mathematical logic!)\n\n\n\n\n\n\n\nStep 1: Apply Identity\n\n\\(3\\sin(x) - 4\\sin^3(x) = 3\\sin(x)\\)\n\n\n\nStep 2: Rearrange\n\nSubtract \\(3\\sin(x)\\) from both sides: \\(-4\\sin^3(x) = 0\\) \\(\\sin^3(x) = 0\\)\n\n\n\nStep 3: Solve\n\n\\(\\sin(x) = 0\\) \\(\\implies x = 0, \\pi, 2\\pi\\)\n\n\n\n\nviewof a4 = Inputs.range([-360, 360], {value: 0, step: 1, label: \"Angle x (°)\"})\ndrawUnitCircle(a4)",
+    "crumbs": [
+      "3. Examples"
+    ]
+  },
+  {
+    "objectID": "justify.html",
+    "href": "justify.html",
+    "title": "Pedagogical Rationale",
+    "section": "",
+    "text": "Dual Coding: Coupling abstract algebraic factorisation with visual geometry (unit circle) reduces cognitive load.\nProductive Failure: The opening provocation induces a common error (dividing to lose a solution), priming students to accept the correct factorisation method.\nTargeted Intervention: Directly mitigates the highest feedback-risk identified by HSC markers—domain errors and lost solutions.",
+    "crumbs": [
+      "4. Pedagogical Justification"
+    ]
+  },
+  {
+    "objectID": "justify.html#why-this-approach",
+    "href": "justify.html#why-this-approach",
+    "title": "Pedagogical Rationale",
+    "section": "",
+    "text": "Dual Coding: Coupling abstract algebraic factorisation with visual geometry (unit circle) reduces cognitive load.\nProductive Failure: The opening provocation induces a common error (dividing to lose a solution), priming students to accept the correct factorisation method.\nTargeted Intervention: Directly mitigates the highest feedback-risk identified by HSC markers—domain errors and lost solutions.",
+    "crumbs": [
+      "4. Pedagogical Justification"
+    ]
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "Concept Map: Trigonometry",
+    "section": "",
+    "text": "Concept Map: Trigonometry\n\nInterconnected Toolkit: Trigonometric concepts build upon each other.\nData-Informed Priority: The map below highlights ten core concepts.\n\n\n\n\n\n\n\n\n\n\n\n\nConcept Details\nClick a node in the mindmap to view its HSC ranking statistics.",
+    "crumbs": [
+      "1. Concept Map"
+    ]
+  }
+]
